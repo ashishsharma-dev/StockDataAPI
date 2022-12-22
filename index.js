@@ -3,6 +3,10 @@ const PORT = process.env.PORT || 5000
 
 const app = express()
 
+app.get('/', (req, res)=>{
+    res.send("Welcome to the NSE Option Chain Data API, Goto /stock-data for more data")
+})
+
 app.get('/stock-data', (req, res)=>{
     const getData = async () => {
         const response = await fetch("https://www.nseindia.com/api/option-chain-indices?symbol=NIFTY", {
